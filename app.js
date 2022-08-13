@@ -63,7 +63,13 @@ app.post("/login",(req,res)=>{
     });
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
+app.listen(port);
 
-app.listen(5000, ()=>{
-    console.log("server has started listening");
+
+app.listen(port, ()=>{
+    console.log("server has started Successfully");
 });
