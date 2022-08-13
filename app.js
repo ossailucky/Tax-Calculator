@@ -15,7 +15,9 @@ dbConnect();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-
+app.get("/",(req,res)=>{
+    res.status(201).send("Hello");
+})
 app.post("/register", (req,res)=>{
     bcrypt.hash(req.body.password, saltRounds,(err,hash)=>{
         const newUser = new User({
